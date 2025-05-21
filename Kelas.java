@@ -6,27 +6,74 @@ public class Kelas {
     }
 
     public Siswa ambilDi(Integer index){
-        return null;
+        Siswa sekarang = pertama; //dimulai dari node pertama
+        int i = 0; //menghitung posisi index
+        while (sekarang !=null) {
+            if (i == index) {
+                return sekarang;
+            }
+            sekarang = sekarang.berikutnya;
+            i++;
+        }
+        return null; //kalau indexnya lebih dari jumlah siswa, biar balik ke awal
     }
     
     public Integer urutan(String nama){
-        return null;
+        Siswa sekarang = pertama;
+        int i = 0;
+        while (sekarang != null) {
+            if (sekarang.nama.equals(nama)) {
+                return i;
+            }
+            sekarang = sekarang.berikutnya;
+            i++;
+        }
+        return null; //kalau tidak ketemu urutannya
     }
 
     public Integer jumlahSiswa(){
-        return null;
+        Siswa sekarang = pertama;
+        int jumlah = 0;
+        while (sekarang != null) {
+            jumlah++;
+            sekarang = sekarang.berikutnya;
+        }
+        return jumlah;
     }
 
-    public void tambahDiDepan(Siswa s){
-
+    public void tambahDiDepan(Siswa s) {
+        s.berikutnya = pertama;
+        pertama = s;
     }
 
     public void tambahSetelah(String nama, Siswa s){
-
+        Siswa sekarang = pertama;
+        while (sekarang != null) {
+            if (sekarang.nama.equals(nama)){
+                s.berikutnya = sekarang.berikutnya;
+                sekarang.berikutnya = s;
+                break;
+            }
+            sekarang = sekarang.berikutnya;
+        }
     }
 
     public void hapus(String nama){
+        if (pertama == null) return;
 
+        if (pertama.nama.equals(nama)) {
+            pertama = pertama.berikutnya;
+            return;
+        }
+
+        Siswa sekarang = pertama;
+        while (sekarang.berikutnya != null) {
+            if (sekarang.berikutnya.nama.equals(nama)) {
+                sekarang.berikutnya = sekarang.berikutnya.berikutnya;
+                return;
+            }
+            sekarang = sekarang.berikutnya;
+        }
     }
 
     public void tambahDiBelakang(Siswa s){
