@@ -1,5 +1,6 @@
 public class MergeSortedLists {
 
+    //ini kode fungsi yang nanti dipakai untuk dijadikan variabel di main
     public ListNode mergeKLists(ListNode[] lists) {
         
         //kode ini untuk semisal array-nya kosong/null, agar hasilnya nanti jadi null dan bukan error
