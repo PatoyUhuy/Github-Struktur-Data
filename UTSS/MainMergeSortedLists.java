@@ -1,7 +1,8 @@
 public class MainMergeSortedLists {
     public static void main(String[] args) {
-        MergeSortedLists merger = new MergeSortedLists();
+        MergeSortedLists merger = new MergeSortedLists(); //membuat variabel merger untuk memanggil kode untuk menggabungkan listnya nanti
 
+        //kasus pertama: penggabungan biasa
         ListNode l1 = new ListNode(1);
         l1.next = new ListNode(4);
         l1.next.next = new ListNode(5);
@@ -19,12 +20,14 @@ public class MainMergeSortedLists {
         System.out.println("Hasil Penggabungan (yang pertama): ");
         MergeSortedLists.printList(results1);
 
+        //kasus kedua: tidak ada list dalam arraynya
         ListNode[] lists2 = {};
         ListNode results2 = merger.mergeKLists(lists2);
 
         System.out.println("Hasil Penggabungan (bila array-nya kosong):");
         MergeSortedLists.printList(results2);
 
+        //kasus ketiga: bila ada list yang isinya kosong di dalam array
         ListNode l4 = new ListNode(5);
         l4.next = new ListNode(7);
         ListNode l5 = null;
@@ -37,6 +40,7 @@ public class MainMergeSortedLists {
         System.out.println("Hasil Penggabungan (bila ada list yg kosong): ");
         MergeSortedLists.printList(results3);
 
+        //kasus keempat: bila hanya ada satu list dalam array
         ListNode l7 = new ListNode(4);
         l7.next = new ListNode(8);
         l7.next.next = new ListNode(12);
